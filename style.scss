@@ -1,0 +1,122 @@
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin phone-sm {
+    @media only screen and (max-width: 700px) {
+        @content;
+    }
+}
+
+* {
+    color: #C5C1C0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #0A1612;
+    background-image: url(background.png);
+}
+
+.wrapper {
+    width: 80%;
+}
+
+.header {
+    @include flex();
+    width: 100%;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+h2 {
+    margin-top: 0;
+    text-align: justify;
+}
+
+.logo-side {
+    width: 100%;
+    @include flex();
+}
+
+.logo-additional {
+    width: 100%;
+    @include flex();
+}
+
+.main {
+    width: 100%;
+    @include flex();
+    margin-top: 50px;
+    @include phone-sm(){
+        margin-top: 0px;
+    }
+}
+
+.minify {
+    @include flex();
+    @include phone-sm(){
+        flex-direction: column;
+    }
+}
+
+.css_input_mini {
+    min-height: 40vh;
+    min-width: 40%;
+    transition: .1s;
+    resize: none;
+    background: #C5C1C0;
+    color: #000;
+    @include phone-sm(){
+        min-width: 100%;
+    }
+}
+
+.button_mini {
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-left: 50px solid red;
+    border-bottom: 25px solid transparent;
+    margin: 0 40px 0 40px;
+    &:hover {
+        cursor: pointer;
+    }
+    @include phone-sm(){
+        transform: rotate(90deg);
+        margin: 30px 0 30px 0;
+    }
+}
+
+.site_mini{
+    min-height: 40vh;
+    min-width: 40%;
+    resize: none;
+    background: #C5C1C0;
+    color: #000;
+    @include phone-sm(){
+        min-width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.animation-empty {
+    animation: bump .45s linear;
+}
+
+@keyframes bump {
+    25%{
+        transform: rotate(3deg);
+    }
+    50%{
+        transform: rotate(-3deg);
+    }
+    75%{
+        transform: rotate(1deg);
+    }
+    100%{
+        transform: rotate(-1deg);
+    }
+}
